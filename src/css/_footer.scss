@@ -63,6 +63,12 @@
   color: rgb(255 255 255 / 50%);
 }
 
+.footer__maker {
+  @extend .footer__tagline;
+
+  margin-top: 20px;
+  color: $off-white;
+}
 .footer__links {
   display: flex;
   flex-wrap: wrap;
