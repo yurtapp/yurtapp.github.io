@@ -1,0 +1,41 @@
+{
+  "name": "yurt-marketing-site",
+  "version": "1.0.0",
+  "description": "Marketing site for Yurt",
+  "private": true,
+  "packageManager": "yarn@1.22.22",
+  "scripts": {
+    "build": "rm -rf ./dist && NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js --stats-modules-space 999",
+    "dev": "NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack serve --config webpack.config.js",
+    "format": "prettier --write \"src/**/*.{js,scss,html}\"",
+    "lint:css": "stylelint \"src/css/**/*.scss\" --fix",
+    "lint:js": "eslint src/js --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/plugin-transform-class-properties": "^7.28.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^3.2.0",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "cssnano": "^6.1.2",
+    "eslint": "^8.57.0",
+    "html-webpack-plugin": "^5.0.0",
+    "mini-css-extract-plugin": "^2.0.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.1",
+    "sass-loader": "^8.0.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-recess-order": "^7.6.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^7.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "^5.0.0"
+  }
+}

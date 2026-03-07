@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+.cta-banner {
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+  color: $white;
+  background: linear-gradient(135deg, $jungle-green 0%, #0ea37a 100%);
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background-image: radial-gradient(circle, rgb(255 255 255 / 6%) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.cta-banner__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-banner__title {
+  margin-bottom: 1rem;
+  font-size: clamp($text-2xl, 4vw, $text-4xl);
+  font-weight: 800;
+  color: $canary-yellow;
+  letter-spacing: -0.025em;
+}
+
+.cta-banner__sub {
+  margin-bottom: 2.5rem;
+  font-size: $text-lg;
+  line-height: 1.6;
+  opacity: 0.88;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-banner__note {
+  margin-top: 1.25rem;
+  font-size: $text-sm;
+  opacity: 0.6;
+}

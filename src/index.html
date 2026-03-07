@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yurt - Home Management, Simplified</title>
+    <meta
+      name="description"
+      content="Yurt helps homeowners track expenses, manage their home inventory, and stay on top of recurring bills, and more — all in one place."
+    />
+    <meta property="og:title" content="Yurt — Home Management, Simplified" />
+    <meta
+      property="og:description"
+      content="Track expenses, manage inventory, and stay on top of bills. Protect your home investment with Yurt."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="/assets/main.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fonts.googleapis.com/css?family=Golos+Text:wght@400..900"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="Yurt home">
+          <img
+            src="/images/logos/full-no-bg.png"
+            alt="Yurt Logo"
+            class="nav__logo-mark"
+            height="20px"
+            loading="eager"
+          />
+        </a>
+
+        <div class="nav__links">
+          <div class="nav__dropdown">
+            <button class="nav__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              Features
+              <svg
+                class="nav__dropdown-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </button>
+            <div class="nav__dropdown-menu">
+              <a href="#expenses">Expense Tracking</a>
+              <a href="#inventory">Home Inventory</a>
+              <a href="#bills">Bill Management</a>
+            </div>
+          </div>
+          <a href="/pricing.html">Pricing</a>
+        </div>
+
+        <div class="nav__actions">
+          <a href="https://app.yurthome.co/login" class="nav__login btn btn--white">Log in</a>
+          <a href="https://app.yurthome.co/signup" class="btn btn--primary">Get Started Free</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── Hero ────────────────────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-headline">
+      <div class="hero__body">
+        <h1 class="hero__headline" id="hero-headline">
+          Home Management,<br />
+          <em>Simplified.</em>
+        </h1>
+        <p class="hero__sub">
+          Yurt combines expense tracking, home inventory, and bill management to give you a complete
+          picture of your property and help you protect your biggest investment.
+        </p>
+        <div class="hero__ctas">
+          <a href="https://app.yurthome.co/signup" class="btn btn--accent btn--lg">
+            Start for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--white btn--lg">View Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Proof strip ─────────────────────────────────────────────────────── -->
+    <div class="proof-strip" aria-label="Key statistics">
+      <div class="proof-strip__inner">
+        <div class="proof-strip__stat">
+          <span class="proof-strip__number">$14K+</span>
+          <span class="proof-strip__label">avg. home expenses tracked per year</span>
+        </div>
+        <div class="proof-strip__stat">
+          <span class="proof-strip__number">17</span>
+          <span class="proof-strip__label">average monthly bills per household</span>
+        </div>
+        <div class="proof-strip__stat">
+          <span class="proof-strip__number">100%</span>
+          <span class="proof-strip__label">peace of mind at insurance claim time</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Feature 1: Expenses ─────────────────────────────────────────────── -->
+    <section class="section" id="expenses" aria-labelledby="expenses-title">
+      <div class="feature">
+        <div class="feature__visual">
+          <img
+            src="/images/wireframe-expenses.svg"
+            alt="Expense tracking view showing categorized home expenses"
+            class="feature__mockup"
+            width="760"
+            height="520"
+            loading="lazy"
+          />
+          <div class="feature__badge feature__badge--bottom-left">
+            <div class="feature__badge-icon feature__badge-icon--blue">📊</div>
+            <span>$2,854 tracked this month</span>
+          </div>
+        </div>
+
+        <div class="feature__copy">
+          <p class="feature__tag feature__tag--blue">
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+              <circle cx="7" cy="7" r="7" fill="#0066DB" />
+              <path d="M4 7h6M7 4v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            Expense Tracking
+          </p>
+          <h2 class="feature__title" id="expenses-title">Know the True Cost<br />of Your Home</h2>
+          <p class="feature__body">
+            Most homeowners dramatically underestimate what they spend on their property each year.
+            Yurt makes it easy to log, categorize, and review every dollar, from routine upkeep to
+            major renovations. So now you can budget smarter.
+          </p>
+          <ul class="feature__list" role="list">
+            <li class="feature__list-item">
+              <span class="feature__check" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Track maintenance, utilities, and inventory costs in one place
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Categorize expenses for tax season — home office deductions, rental properties, and
+              more
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Document improvements that add to your home's resale value
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Build a financial history to forecast future maintenance costs
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Feature 2: Inventory ────────────────────────────────────────────── -->
+    <section class="section section--alt" id="inventory" aria-labelledby="inventory-title">
+      <div class="feature feature--reverse">
+        <div class="feature__copy">
+          <p class="feature__tag feature__tag--green">
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+              <circle cx="7" cy="7" r="7" fill="#1DAF8B" />
+              <path d="M4 7h6M7 4v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            Home Inventory
+          </p>
+          <h2 class="feature__title" id="inventory-title">
+            Document Everything.<br />Lose Nothing.
+          </h2>
+          <p class="feature__body">
+            When fire, theft, natural disaster, or disaster strikes, a detailed home inventory can
+            be the difference between a fast insurance payout and a months-long dispute. Yurt helps
+            you build and maintain a complete record of your possessions before you ever need it.
+          </p>
+          <ul class="feature__list" role="list">
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#1DAF8B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Keep a searchable record of possessions with valuable information like serial numbers
+              and purchase values
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#1DAF8B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Speed up insurance claims with documented proof: photos, receipts, and details ready
+              to go
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#1DAF8B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Track warranty expiration dates so you never miss a claim window
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#1DAF8B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Track maintenance history for common appliances like HVACs, washing machines, water
+              heaters, etc...
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#1DAF8B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Simplify moving, estate planning, or preparing a home for sale
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature__visual">
+          <img
+            src="/images/wireframe-inventory.svg"
+            alt="Home inventory grid view showing tracked household items"
+            class="feature__mockup"
+            width="760"
+            height="520"
+            loading="lazy"
+          />
+          <div class="feature__badge feature__badge--top-right">
+            <div class="feature__badge-icon feature__badge-icon--green">✓</div>
+            <span>42 items documented</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Feature 3: Bills ─────────────────────────────────────────────────── -->
+    <section class="section" id="bills" aria-labelledby="bills-title">
+      <div class="feature">
+        <div class="feature__visual">
+          <img
+            src="/images/wireframe-bills.svg"
+            alt="Recurring bills list showing upcoming payment dates and amounts"
+            class="feature__mockup"
+            width="760"
+            height="520"
+            loading="lazy"
+          />
+          <div class="feature__badge feature__badge--bottom-right">
+            <div class="feature__badge-icon feature__badge-icon--yellow">🔔</div>
+            <span>Internet due in 3 days</span>
+          </div>
+        </div>
+
+        <div class="feature__copy">
+          <p class="feature__tag" style="color: #6b5800">
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+              <circle cx="7" cy="7" r="7" fill="#FCF0AD" />
+              <path d="M4 7h6M7 4v6" stroke="#6b5800" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            Recurring Bills
+          </p>
+          <h2 class="feature__title" id="bills-title">Every Bill,<br />Right on Time</h2>
+          <p class="feature__body">
+            Between the mortgage, utilities, insurance, car loans, and streaming subscriptions, it's
+            easy for something to slip through the cracks. Yurt brings all your recurring home costs
+            together in one place so you always know exactly what's coming — and when.
+          </p>
+          <ul class="feature__list" role="list">
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--yellow" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              See every home-related subscription and bill at a glance
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--yellow" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Get reminders before bills are due. Never pay a late fee again
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--yellow" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Spot price increases over time and shope for better rates
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--yellow" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Understand your true monthly housing costs — mortgage is just the beginning
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA Banner ──────────────────────────────────────────────────────── -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="cta-banner__inner">
+        <h2 class="cta-banner__title" id="cta-title">Start organizing your home today</h2>
+        <p class="cta-banner__sub">
+          Join homeowners who use Yurt to protect their investment, simplify tax season, and never
+          miss a payment. No credit card required to get started.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="https://app.yurthome.co/signup" class="btn btn--white btn--lg">
+            Get Started for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--ghost-white btn--lg">See Pricing</a>
+        </div>
+        <p class="cta-banner__note">Free plan available &middot; Upgrade anytime</p>
+      </div>
+    </section>
+
+    <!-- ─── Footer ──────────────────────────────────────────────────────────── -->
+    <footer class="footer" aria-label="Site footer">
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="/" class="footer__logo" aria-label="Yurt home">
+              <span class="footer__logo-mark" aria-hidden="true">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 2L2 8v10h5v-6h6v6h5V8L10 2z" />
+                </svg>
+              </span>
+              Yurt
+            </a>
+            <p class="footer__tagline">
+              The all-in-one home management app. Track expenses, manage inventory, and stay on top
+              of your bills.
+            </p>
+          </div>
+
+          <nav class="footer__links" aria-label="Footer navigation">
+            <div class="footer__col">
+              <span class="footer__col-title">Product</span>
+              <a href="#expenses">Expense Tracking</a>
+              <a href="#inventory">Home Inventory</a>
+              <a href="#bills">Recurring Bills</a>
+              <a href="/pricing.html">Pricing</a>
+            </div>
+            <div class="footer__col">
+              <span class="footer__col-title">Account</span>
+              <a href="https://app.yurthome.co/login">Log In</a>
+              <a href="https://app.yurthome.co/signup">Sign Up Free</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; 2025 Yurt. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js"></script>
+  </body>
+</html>

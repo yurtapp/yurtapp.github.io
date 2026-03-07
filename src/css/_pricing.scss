@@ -1,0 +1,344 @@
+@use 'variables' as *;
+
+// ─── Pricing page hero ────────────────────────────────────────────────────────
+
+.pricing-hero {
+  padding-top: $nav-height;
+  padding-bottom: 3rem;
+  text-align: center;
+  background: $cultured;
+
+  &__inner {
+    max-width: $container-max-width;
+    padding: 3.5rem $container-padding 0;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-size: clamp($text-3xl, 5vw, $text-5xl);
+    font-weight: 800;
+    color: $color-text-dark;
+    letter-spacing: -0.03em;
+  }
+
+  &__sub {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: $text-xl;
+    line-height: 1.6;
+    color: $color-text-body;
+  }
+}
+
+// ─── Pricing section container ────────────────────────────────────────────────
+
+.pricing-section {
+  padding: 4rem 0 5rem;
+}
+
+.pricing-section__inner {
+  max-width: $container-max-width;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+// ─── Interval toggle ──────────────────────────────────────────────────────────
+
+.pricing-toggle {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.pricing-toggle__label {
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $color-text-muted;
+  transition: color 0.15s;
+
+  &.is-active {
+    font-weight: 600;
+    color: $color-text-dark;
+  }
+}
+
+.pricing-toggle__switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + .pricing-toggle__track {
+      background: $jungle-green;
+    }
+
+    &:checked + .pricing-toggle__track::after {
+      transform: translateX(24px);
+    }
+  }
+}
+
+.pricing-toggle__track {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: $color-border;
+  border-radius: $radius-full;
+  transition: background 0.2s ease;
+
+  &::after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    content: '';
+    background: $white;
+    border-radius: $radius-full;
+    box-shadow: $shadow-sm;
+    transition: transform 0.2s ease;
+  }
+}
+
+.pricing-toggle__save {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: #5a4a00;
+  letter-spacing: 0.02em;
+  background: $canary-yellow;
+  border-radius: $radius-full;
+}
+
+// ─── Pricing cards grid ───────────────────────────────────────────────────────
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 740px;
+  margin: 0 auto;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+// ─── Single pricing card ──────────────────────────────────────────────────────
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: $white;
+  border: 2px solid $color-border;
+  border-radius: $radius-xl;
+
+  &--featured {
+    border-color: $jungle-green;
+    box-shadow:
+      0 8px 32px rgb(29 175 139 / 18%),
+      $shadow-md;
+  }
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  padding: 0.25rem 0.9rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  background: $jungle-green;
+  border-radius: $radius-full;
+  transform: translateX(-50%);
+}
+
+.pricing-card__tier {
+  margin-bottom: 1.25rem;
+  font-size: $text-sm;
+  font-weight: 700;
+  color: $roman-silver;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pricing-card__price {
+  display: flex;
+  gap: 0.15rem;
+  align-items: flex-end;
+  margin-bottom: 0.25rem;
+  color: $color-text-dark;
+}
+
+.pricing-card__dollar {
+  margin-bottom: 10px;
+  font-size: $text-xl;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pricing-card__amount {
+  font-size: $text-6xl;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.pricing-card__period {
+  padding-left: 2px;
+  margin-bottom: 8px;
+  font-size: $text-base;
+  color: $color-text-muted;
+}
+
+.pricing-card__per-prop {
+  min-height: 1.2em;
+  margin-bottom: 1.75rem;
+  font-size: $text-xs;
+  color: $color-text-muted;
+}
+
+.pricing-card__cta {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.75rem;
+  font-size: $text-base;
+}
+
+.pricing-card__divider {
+  height: 1px;
+  margin-bottom: 1.5rem;
+  background: $color-border;
+}
+
+.pricing-card__features {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-card__feature {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: $text-sm;
+  line-height: 1.5;
+  color: $color-text-body;
+}
+
+.pricing-card__check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--blue svg path {
+    fill: $flickr-blue;
+  }
+
+  &--green svg path {
+    fill: $jungle-green;
+  }
+}
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
+
+.faq-section {
+  padding: 4rem 0 5rem;
+  background: $cultured;
+}
+
+.faq-section__inner {
+  max-width: 680px;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  overflow: hidden;
+  background: $white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+.faq-item__question {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  font-size: $text-base;
+  font-weight: 600;
+  color: $color-text-dark;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.faq-item__chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: $color-text-muted;
+  transition: transform 0.2s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 2;
+  }
+}
+
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item__answer {
+  display: none;
+  padding: 0 1.5rem 1.25rem;
+  font-size: $text-base;
+  line-height: 1.7;
+  color: $color-text-body;
+
+  .faq-item.is-open & {
+    display: block;
+  }
+}

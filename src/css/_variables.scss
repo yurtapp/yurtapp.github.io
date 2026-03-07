@@ -1,0 +1,90 @@
+// ─── Brand Colors (from Yurt design system) ───────────────────────────────────
+
+// Primary palette
+$jungle-green: #1daf8b;
+$flickr-blue: #0066db;
+
+// Secondary highlights
+$alice-blue: #e4f0fe;
+$canary-yellow: #fcf0ad;
+
+// Dark anchors (for gradients and backgrounds)
+$midnight-eagle-green: #00343d;
+$dark-cornflower-blue: #0d3f82;
+
+// Neutrals
+$charcoal: #3a3f50;
+$cultured: #f7f8f8;
+$beau-blue: #cddae2;
+$cadet-gray: #8c99a6;
+$dark-electric-blue: #616f7d;
+$off-white: #fafafa;
+$white: #fff;
+$roman-silver: #898e99;
+
+// ─── Semantic Mappings ────────────────────────────────────────────────────────
+
+$color-primary: $flickr-blue;
+$color-accent: $jungle-green;
+$color-bg-light: $alice-blue;
+$color-highlight: $canary-yellow;
+$color-text-dark: $charcoal;
+$color-text-body: $dark-electric-blue;
+$color-text-muted: $cadet-gray;
+$color-border: $beau-blue;
+$color-bg: $cultured;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+
+$font-family: 'Golos Text', sans-serif;
+$line-height-base: 1.6;
+
+// Type scale
+$text-xs: 0.75rem; //  12px
+$text-sm: 0.875rem; //  14px
+$text-base: 1rem; //  16px
+$text-lg: 1.125rem; //  18px
+$text-xl: 1.25rem; //  20px
+$text-2xl: 1.5rem; //  24px
+$text-3xl: 1.875rem; //  30px
+$text-4xl: 2.25rem; //  36px
+$text-5xl: 3rem; //  48px
+$text-6xl: 3.75rem; //  60px
+
+// ─── Spacing & Layout ─────────────────────────────────────────────────────────
+
+$section-padding-y: 5rem;
+$container-max-width: 1200px;
+$container-padding: 1.5rem;
+$nav-height: 80px;
+
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// ─── Shadows ─────────────────────────────────────────────────────────────────
+
+$shadow-sm:
+  0 1px 3px rgb(0 0 0 / 8%),
+  0 1px 2px rgb(0 0 0 / 5%);
+$shadow-md:
+  0 4px 12px rgb(0 0 0 / 8%),
+  0 2px 4px rgb(0 0 0 / 5%);
+$shadow-lg:
+  0 12px 30px rgb(0 0 0 / 10%),
+  0 4px 8px rgb(0 0 0 / 5%);
+$shadow-xl:
+  0 24px 48px rgb(0 0 0 / 14%),
+  0 8px 16px rgb(0 0 0 / 6%);
+
+// ─── Borders ──────────────────────────────────────────────────────────────────
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 24px;
+$radius-full: 9999px;

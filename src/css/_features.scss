@@ -1,0 +1,283 @@
+@use 'variables' as *;
+
+// ─── Shared section wrapper ───────────────────────────────────────────────────
+
+.section {
+  padding: $section-padding-y 0;
+}
+
+.section--alt {
+  background: $cultured;
+}
+
+// ─── Section header (used on pricing page, etc.) ─────────────────────────────
+
+.section-header {
+  max-width: 640px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.section-header__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $color-accent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section-header__title {
+  margin-bottom: 1rem;
+  font-size: clamp($text-2xl, 4vw, $text-4xl);
+  font-weight: 800;
+  color: $color-text-dark;
+  letter-spacing: -0.02em;
+}
+
+.section-header__body {
+  font-size: $text-lg;
+  line-height: 1.65;
+  color: $color-text-body;
+}
+
+// ─── Feature block ────────────────────────────────────────────────────────────
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: $container-max-width;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+// Reverse layout: image right, text left
+.feature--reverse {
+  @media (min-width: $bp-lg) {
+    .feature__visual {
+      order: 2;
+    }
+
+    .feature__copy {
+      order: 1;
+    }
+  }
+}
+
+.feature__tag {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  &--green {
+    color: $jungle-green;
+  }
+
+  &--blue {
+    color: $flickr-blue;
+  }
+
+  &--yellow {
+    color: darken-approx($canary-yellow);
+
+    @function darken-approx($color) {
+      @return mix(black, $color, 30%);
+    }
+  }
+}
+
+.feature__title {
+  margin-bottom: 1.25rem;
+  font-size: clamp($text-2xl, 3.5vw, $text-4xl);
+  font-weight: 800;
+  line-height: 1.15;
+  color: $color-text-dark;
+  letter-spacing: -0.025em;
+}
+
+.feature__body {
+  margin-bottom: 1.75rem;
+  font-size: $text-lg;
+  line-height: 1.7;
+  color: $color-text-body;
+}
+
+.feature__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature__list-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: $text-base;
+  line-height: 1.5;
+  color: $color-text-body;
+}
+
+.feature__check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  background: $alice-blue;
+  border-radius: $radius-full;
+
+  svg {
+    width: 11px;
+    height: 11px;
+    fill: $flickr-blue;
+  }
+
+  &--green {
+    background: rgb(29 175 139 / 12%);
+
+    svg {
+      fill: $jungle-green;
+    }
+  }
+
+  &--yellow {
+    background: $canary-yellow;
+
+    svg {
+      fill: #6b5800;
+    }
+  }
+}
+
+// ─── Screenshot / visual area ─────────────────────────────────────────────────
+
+.feature__visual {
+  position: relative;
+}
+
+.feature__mockup {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+}
+
+.feature__badge {
+  position: absolute;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $color-text-dark;
+  white-space: nowrap;
+  background: $white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+
+  &--bottom-left {
+    bottom: -1.25rem;
+    left: -1rem;
+
+    @media (min-width: $bp-lg) {
+      left: -1.75rem;
+    }
+  }
+
+  &--bottom-right {
+    right: -1rem;
+    bottom: -1.25rem;
+
+    @media (min-width: $bp-lg) {
+      right: -1.75rem;
+    }
+  }
+
+  &--top-right {
+    top: -1rem;
+    right: -1rem;
+
+    @media (min-width: $bp-lg) {
+      right: -1.75rem;
+    }
+  }
+}
+
+.feature__badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  border-radius: $radius-md;
+
+  &--green {
+    background: rgb(29 175 139 / 12%);
+  }
+
+  &--blue {
+    background: $alice-blue;
+  }
+
+  &--yellow {
+    background: $canary-yellow;
+  }
+}
+
+// ─── Social proof strip ───────────────────────────────────────────────────────
+
+.proof-strip {
+  padding: 2rem 0;
+  background: $white;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+}
+
+.proof-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 4rem;
+  align-items: center;
+  justify-content: center;
+  max-width: $container-max-width;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proof-strip__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.proof-strip__number {
+  font-size: $text-5xl;
+  font-weight: 800;
+  color: $color-text-dark;
+  letter-spacing: -0.02em;
+}
+
+.proof-strip__label {
+  font-size: $text-base;
+  color: $color-text-muted;
+}

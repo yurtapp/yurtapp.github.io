@@ -1,0 +1,108 @@
+@use 'variables' as *;
+
+.footer {
+  padding: 3rem 0 2rem;
+  color: rgb(255 255 255 / 65%);
+  background: $charcoal;
+}
+
+.footer__inner {
+  max-width: $container-max-width;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 280px;
+}
+
+.footer__logo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: $text-lg;
+  font-weight: 800;
+  color: $white;
+  letter-spacing: -0.02em;
+}
+
+.footer__logo-mark {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, $jungle-green, $flickr-blue);
+  border-radius: $radius-md;
+
+  svg {
+    width: 17px;
+    height: 17px;
+    fill: $white;
+  }
+}
+
+.footer__tagline {
+  font-size: $text-sm;
+  line-height: 1.6;
+  color: rgb(255 255 255 / 50%);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__col-title {
+  margin-bottom: 0.4rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: rgb(255 255 255 / 40%);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footer__col a {
+  font-size: $text-sm;
+  color: rgb(255 255 255 / 55%);
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__copy {
+  font-size: $text-xs;
+  color: rgb(255 255 255 / 35%);
+}
