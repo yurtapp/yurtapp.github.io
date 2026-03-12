@@ -2,18 +2,18 @@ import '../css/pricing.scss';
 
 const PRICES = {
   monthly: {
-    amount: 9,
-    cents: '99',
-    formatted: '9',
+    amount: 3,
+    cents: '00',
+    formatted: '3',
     period: '/ mo',
     perProp: 'per property, per month',
   },
   yearly: {
-    amount: 79,
-    cents: '99',
-    formatted: '79',
+    amount: 24,
+    cents: '00',
+    formatted: '24',
     period: '/ yr',
-    perProp: 'per property, per year · save $40',
+    perProp: 'per property, per year · save $12',
   },
 };
 
