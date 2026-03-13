@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var ROOT_DIR = path.resolve(__dirname);
-var OUT_DIR = path.resolve(__dirname, 'dist');
+var OUT_DIR = path.resolve(__dirname, 'docs');
 var SRC_DIR = path.resolve(__dirname, 'src');
 
 var config = {
