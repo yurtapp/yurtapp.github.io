@@ -7,10 +7,10 @@
   left: 0;
   z-index: 100;
   height: $nav-height;
-  background: $midnight-eagle-green;
-  border-bottom: 1px solid $color-border;
   font-size: $text-lg;
   font-weight: 700;
+  background: $midnight-eagle-green;
+  border-bottom: 1px solid $color-border;
 
   &.is-scrolled {
     box-shadow: $shadow-md;
@@ -73,10 +73,10 @@
   gap: 0.3rem;
   align-items: center;
   padding: 0;
+  font-size: $text-lg;
   font-weight: 500;
   color: $color-text-muted;
   transition: color 0.15s ease;
-  font-size: $text-lg;
 
   &:hover {
     color: $off-white;
