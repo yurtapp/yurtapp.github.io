@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" width="780" height="520" role="img" aria-label="Expense tracking screenshot placeholder">
+  <!-- Card background -->
+  <rect width="780" height="520" rx="14" fill="#F7F8F8" stroke="#CDDAE2" stroke-width="1.5"/>
+
+  <!-- Browser chrome -->
+  <rect x="0" y="0" width="780" height="44" rx="14" fill="#E8EAED"/>
+  <rect x="0" y="26" width="780" height="18" fill="#E8EAED"/>
+  <!-- Traffic lights -->
+  <circle cx="22" cy="22" r="7" fill="#FC5753"/>
+  <circle cx="44" cy="22" r="7" fill="#FEBC2E"/>
+  <circle cx="66" cy="22" r="7" fill="#34C748"/>
+  <!-- URL bar -->
+  <rect x="160" y="13" width="460" height="18" rx="5" fill="white" stroke="#CDDAE2" stroke-width="1"/>
+  <text x="390" y="26.5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6" text-anchor="middle">app.getyurt.com/expenses</text>
+
+  <!-- App nav bar -->
+  <rect x="0" y="44" width="780" height="52" fill="#00343D"/>
+  <text x="28" y="76" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" font-weight="800" fill="white">Yurt</text>
+  <text x="90" y="76" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">Expenses</text>
+  <text x="162" y="76" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">Inventory</text>
+  <text x="242" y="76" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="rgba(255,255,255,0.35)">Bills</text>
+
+  <!-- Active tab indicator -->
+  <rect x="84" y="91" width="62" height="3" rx="2" fill="#1DAF8B"/>
+
+  <!-- Page content area -->
+  <!-- Page heading -->
+  <text x="28" y="134" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="700" fill="#3A3F50">Expenses</text>
+  <text x="28" y="156" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#8C99A6">February 2025</text>
+
+  <!-- Add button -->
+  <rect x="620" y="116" width="136" height="34" rx="5" fill="#0066DB"/>
+  <text x="688" y="138" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle">+ Add Expense</text>
+
+  <!-- Summary cards row -->
+  <!-- Card 1: Total -->
+  <rect x="28" y="170" width="220" height="80" rx="10" fill="white" stroke="#CDDAE2" stroke-width="1"/>
+  <text x="46" y="194" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#8C99A6" letter-spacing="0.8">TOTAL THIS MONTH</text>
+  <text x="46" y="228" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="800" fill="#3A3F50">$2,854</text>
+
+  <!-- Card 2: Maintenance -->
+  <rect x="260" y="170" width="220" height="80" rx="10" fill="white" stroke="#CDDAE2" stroke-width="1"/>
+  <text x="278" y="194" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#8C99A6" letter-spacing="0.8">MAINTENANCE</text>
+  <text x="278" y="228" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="800" fill="#1DAF8B">$420</text>
+
+  <!-- Card 3: Improvements -->
+  <rect x="492" y="170" width="260" height="80" rx="10" fill="white" stroke="#CDDAE2" stroke-width="1"/>
+  <text x="510" y="194" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#8C99A6" letter-spacing="0.8">IMPROVEMENTS</text>
+  <text x="510" y="228" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="800" fill="#0066DB">$2,200</text>
+
+  <!-- Table header -->
+  <rect x="28" y="268" width="724" height="28" rx="6" fill="#F0F2F4"/>
+  <text x="60" y="286" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" fill="#8C99A6" letter-spacing="0.8">DESCRIPTION</text>
+  <text x="466" y="286" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" fill="#8C99A6" letter-spacing="0.8">CATEGORY</text>
+  <text x="742" y="286" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" fill="#8C99A6" letter-spacing="0.8" text-anchor="end">AMOUNT</text>
+
+  <!-- Row 1 -->
+  <rect x="28" y="296" width="724" height="46" fill="white"/>
+  <line x1="28" y1="342" x2="752" y2="342" stroke="#CDDAE2" stroke-width="0.5"/>
+  <circle cx="52" cy="319" r="13" fill="#E4F0FE"/>
+  <text x="52" y="324" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" text-anchor="middle">🔧</text>
+  <text x="76" y="315" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="#3A3F50">HVAC Filter Replacement</text>
+  <text x="76" y="333" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6">Feb 14, 2025</text>
+  <rect x="456" y="309" width="92" height="19" rx="10" fill="#E4F0FE"/>
+  <text x="502" y="323" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#0066DB" text-anchor="middle">Maintenance</text>
+  <text x="742" y="322" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600" fill="#3A3F50" text-anchor="end">$89.00</text>
+
+  <!-- Row 2 -->
+  <rect x="28" y="342" width="724" height="46" fill="#FAFAFA"/>
+  <line x1="28" y1="388" x2="752" y2="388" stroke="#CDDAE2" stroke-width="0.5"/>
+  <circle cx="52" cy="365" r="13" fill="#FCF0AD"/>
+  <text x="52" y="370" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" text-anchor="middle">🏠</text>
+  <text x="76" y="361" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="#3A3F50">Kitchen Renovation Deposit</text>
+  <text x="76" y="379" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6">Feb 10, 2025</text>
+  <rect x="452" y="355" width="100" height="19" rx="10" fill="#FCF0AD"/>
+  <text x="502" y="369" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#6b5800" text-anchor="middle">Improvement</text>
+  <text x="742" y="368" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600" fill="#3A3F50" text-anchor="end">$1,200.00</text>
+
+  <!-- Row 3 -->
+  <rect x="28" y="388" width="724" height="46" fill="white"/>
+  <line x1="28" y1="434" x2="752" y2="434" stroke="#CDDAE2" stroke-width="0.5"/>
+  <circle cx="52" cy="411" r="13" fill="#E4F0FE"/>
+  <text x="52" y="416" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" text-anchor="middle">⚡</text>
+  <text x="76" y="407" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="#3A3F50">Monthly Electricity Bill</text>
+  <text x="76" y="425" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6">Feb 8, 2025</text>
+  <rect x="464" y="401" width="76" height="19" rx="10" fill="#F0F2F4" stroke="#CDDAE2" stroke-width="0.5"/>
+  <text x="502" y="415" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#616F7D" text-anchor="middle">Utility</text>
+  <text x="742" y="414" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600" fill="#3A3F50" text-anchor="end">$142.00</text>
+
+  <!-- Row 4 -->
+  <rect x="28" y="434" width="724" height="46" fill="#FAFAFA"/>
+  <circle cx="52" cy="457" r="13" fill="#E4F0FE"/>
+  <text x="52" y="462" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" text-anchor="middle">🔍</text>
+  <text x="76" y="453" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="500" fill="#3A3F50">Annual Roof Inspection</text>
+  <text x="76" y="471" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6">Feb 3, 2025</text>
+  <rect x="456" y="447" width="92" height="19" rx="10" fill="#E4F0FE"/>
+  <text x="502" y="461" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#0066DB" text-anchor="middle">Maintenance</text>
+  <text x="742" y="460" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600" fill="#3A3F50" text-anchor="end">$150.00</text>
+
+  <!-- Placeholder label bar -->
+  <rect x="0" y="484" width="780" height="36" fill="rgba(0,0,0,0.04)"/>
+  <line x1="0" y1="484" x2="780" y2="484" stroke="#CDDAE2" stroke-width="1"/>
+  <text x="390" y="507" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#8C99A6" text-anchor="middle" font-style="italic">Placeholder — screenshot coming soon</text>
+</svg>
