@@ -19,6 +19,16 @@
       href="https://fonts.googleapis.com/css?family=Golos+Text:wght@400..900"
       type="text/css"
     />
+
+    <% if (isProd) { %>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-9F7dEWKoi0O8BsMWsl3Kr.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <% } %>
+
   </head>
   <body>
     <!-- ─── Navigation ──────────────────────────────────────────────────────── -->

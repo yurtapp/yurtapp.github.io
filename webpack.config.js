@@ -8,6 +8,8 @@ var ROOT_DIR = path.resolve(__dirname);
 var OUT_DIR = path.resolve(__dirname, 'docs');
 var SRC_DIR = path.resolve(__dirname, 'src');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 var config = {
   mode: process.env.NODE_ENV,
   entry: {
@@ -62,13 +64,15 @@ var config = {
       hash: true,
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['main']
+      chunks: ['main'],
+      templateParameters: { isProd: isProd }
     }),
     new HtmlWebpackPlugin({
       hash: true,
       filename: 'pricing.html',
       template: './src/pricing.html',
-      chunks: ['pricing']
+      chunks: ['pricing'],
+      templateParameters: { isProd: isProd }
     }),
     new CopyPlugin({
       patterns: [
