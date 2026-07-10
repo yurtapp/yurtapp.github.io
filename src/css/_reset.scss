@@ -144,11 +144,11 @@ button {
 
   &--accent {
     color: $white;
-    background: $color-accent;
-    border-color: $color-accent;
+    background: $flickr-blue;
+    border-color: $flickr-blue;
 
     &:hover {
-      background: darken-approx($jungle-green);
+      background: darken-approx($flickr-blue);
       box-shadow: $shadow-md;
     }
   }
