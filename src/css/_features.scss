@@ -67,7 +67,8 @@
 // Reverse layout: image right, text left
 .feature--reverse {
   @media (min-width: $bp-lg) {
-    .feature__visual {
+    .feature__visual,
+    .feature__media {
       order: 2;
     }
 
