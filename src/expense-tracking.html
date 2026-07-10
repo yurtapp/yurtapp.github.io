@@ -30,8 +30,17 @@
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-9F7dEWKoi0O8BsMWsl3Kr.js"></script>
     <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
+      ((window.plausible =
+        window.plausible ||
+        function () {
+          (plausible.q = plausible.q || []).push(arguments);
+        }),
+        (plausible.init =
+          plausible.init ||
+          function (i) {
+            plausible.o = i || {};
+          }));
+      plausible.init();
     </script>
     <% } %>
   </head>
@@ -118,7 +127,8 @@
         <h1 class="landing-hero__title" id="landing-title">Know the True Cost of Your Home</h1>
         <p class="landing-hero__sub">
           Most homeowners dramatically underestimate what they spend on their property each year.
-          Yurt makes it easy to log, categorize, and review every dollar — so you can budget smarter.
+          Yurt makes it easy to log, categorize, and review every dollar — so you can budget
+          smarter.
         </p>
         <div class="landing-hero__actions">
           <a href="https://app.yurthome.co/signup" class="btn btn--accent btn--lg">
