@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+// ─── Feature landing page hero ────────────────────────────────────────────────
+// Shared header used by /expense-tracking, /recurring-bills, /home-inventory.
+
+.landing-hero {
+  position: relative;
+  padding: calc(#{$nav-height} + 4.5rem) 0 4rem;
+  text-align: center;
+  background: $cultured;
+  border-bottom: 1px solid $color-border;
+
+  // Bottom accent line — tinted per feature via modifier
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    content: '';
+    background: linear-gradient(90deg, $jungle-green, $flickr-blue);
+  }
+
+  &--green::after {
+    background: linear-gradient(90deg, $jungle-green, #0ea37a);
+  }
+
+  &--blue::after {
+    background: linear-gradient(90deg, $dark-cornflower-blue, $flickr-blue);
+  }
+
+  &--purple::after {
+    background: linear-gradient(90deg, $dark-purple, $flickr-blue);
+  }
+}
+
+.landing-hero__inner {
+  max-width: 760px;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+.landing-hero__eyebrow {
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.landing-hero__title {
+  margin-bottom: 1.25rem;
+  font-size: clamp($text-3xl, 5vw, $text-5xl);
+  font-weight: 800;
+  line-height: 1.12;
+  color: $color-text-dark;
+  letter-spacing: -0.025em;
+}
+
+.landing-hero__sub {
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  font-size: clamp($text-base, 2.2vw, $text-xl);
+  line-height: 1.6;
+  color: $color-text-body;
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}

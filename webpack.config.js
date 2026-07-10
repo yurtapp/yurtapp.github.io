@@ -74,6 +74,27 @@ var config = {
       chunks: ['pricing'],
       templateParameters: { isProd: isProd }
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: 'expense-tracking/index.html',
+      template: './src/expense-tracking.html',
+      chunks: ['main'],
+      templateParameters: { isProd: isProd }
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: 'recurring-bills/index.html',
+      template: './src/recurring-bills.html',
+      chunks: ['main'],
+      templateParameters: { isProd: isProd }
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: 'home-inventory/index.html',
+      template: './src/home-inventory.html',
+      chunks: ['main'],
+      templateParameters: { isProd: isProd }
+    }),
     new CopyPlugin({
       patterns: [
         {

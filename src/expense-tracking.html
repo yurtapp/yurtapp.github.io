@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracking — Yurt</title>
+    <meta
+      name="description"
+      content="Track every dollar you spend on your home. Yurt makes it easy to log, categorize, and review home expenses so you can budget smarter."
+    />
+    <meta property="og:title" content="Expense Tracking — Yurt" />
+    <meta
+      property="og:description"
+      content="Know the true cost of your home. Log, categorize, and review every dollar with Yurt."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="/assets/main.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fonts.googleapis.com/css?family=Golos+Text:wght@400..900"
+      type="text/css"
+    />
+
+    <% if (isProd) { %>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-9F7dEWKoi0O8BsMWsl3Kr.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <% } %>
+  </head>
+  <body>
+    <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="Yurt home">
+          <img
+            src="/images/logos/full-no-bg.png"
+            alt="Yurt Logo"
+            class="nav__logo-mark"
+            height="20px"
+            loading="eager"
+          />
+        </a>
+
+        <div class="nav__links">
+          <div class="nav__dropdown">
+            <button class="nav__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              Features
+              <svg
+                class="nav__dropdown-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </button>
+            <div class="nav__dropdown-menu">
+              <a href="/expense-tracking">Expense Tracking</a>
+              <a href="/home-inventory">Home Inventory</a>
+              <a href="/recurring-bills">Bill Management</a>
+            </div>
+          </div>
+          <a href="/pricing.html">Pricing</a>
+        </div>
+
+        <div class="nav__actions">
+          <a href="https://app.yurthome.co/login" class="nav__login btn btn--white">Log in</a>
+          <a href="https://app.yurthome.co/signup" class="btn btn--primary">Start for Free</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── Landing hero ────────────────────────────────────────────────────── -->
+    <header class="landing-hero landing-hero--green" aria-labelledby="landing-title">
+      <div class="landing-hero__inner">
+        <p class="feature__tag feature__tag--green landing-hero__eyebrow">
+          <svg width="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.67188 14.3298C8.67188 15.6198 9.66188 16.6598 10.8919 16.6598H13.4019C14.4719 16.6598 15.3419 15.7498 15.3419 14.6298C15.3419 13.4098 14.8119 12.9798 14.0219 12.6998L9.99187 11.2998C9.20187 11.0198 8.67188 10.5898 8.67188 9.36984C8.67188 8.24984 9.54187 7.33984 10.6119 7.33984H13.1219C14.3519 7.33984 15.3419 8.37984 15.3419 9.66984"
+              stroke="#1DAF8B"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 6V18"
+              stroke="#1DAF8B"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H15C20 2 22 4 22 9V15C22 20 20 22 15 22Z"
+              stroke="#1DAF8B"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Expense Tracking
+        </p>
+        <h1 class="landing-hero__title" id="landing-title">Know the True Cost of Your Home</h1>
+        <p class="landing-hero__sub">
+          Most homeowners dramatically underestimate what they spend on their property each year.
+          Yurt makes it easy to log, categorize, and review every dollar — so you can budget smarter.
+        </p>
+        <div class="landing-hero__actions">
+          <a href="https://app.yurthome.co/signup" class="btn btn--accent btn--lg">
+            Start for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--outline btn--lg">View Pricing</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── Feature detail ──────────────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="landing-title">
+      <div class="feature">
+        <div class="feature__visual">
+          <img
+            src="/images/app-expenses.png"
+            alt="Expense tracking view showing categorized home expenses"
+            class="feature__mockup"
+            loading="lazy"
+          />
+          <div class="feature__badge feature__badge--bottom-left">
+            <div class="feature__badge-icon feature__badge-icon--blue">📊</div>
+            <span>$2,854 tracked this month</span>
+          </div>
+        </div>
+
+        <div class="feature__copy">
+          <p class="feature__body">
+            Most homeowners dramatically underestimate what they spend on their property each year.
+            Yurt makes it easy to log, categorize, and review every dollar, from routine upkeep to
+            major renovations. So now you can budget smarter.
+          </p>
+          <ul class="feature__list" role="list">
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Track maintenance, utilities, and inventory costs in one place
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Categorize expenses for tax season — home office deductions, rental properties, and
+              more
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Document improvements that add to your home's resale value
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--green" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#0066DB"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Build a financial history to forecast future maintenance costs
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA Banner ──────────────────────────────────────────────────────── -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="cta-banner__inner">
+        <h2 class="cta-banner__title" id="cta-title">Start organizing your home today</h2>
+        <p class="cta-banner__sub">
+          Join homeowners who use Yurt to protect their investment, simplify tax season, and never
+          miss a payment. No credit card required to get started.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="https://app.yurthome.co/signup" class="btn btn--white btn--lg">
+            Start for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--ghost-white btn--lg">See Pricing</a>
+        </div>
+        <p class="cta-banner__note">Free plan available &middot; Upgrade anytime</p>
+      </div>
+    </section>
+
+    <!-- ─── Footer ──────────────────────────────────────────────────────────── -->
+    <footer class="footer" aria-label="Site footer">
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="/" class="footer__logo" aria-label="Yurt home">
+              <span class="footer__logo-mark" aria-hidden="true">
+                <img src="/images/logos/y.png" alt="Yurt Logo" loading="eager" />
+              </span>
+              Yurt
+            </a>
+            <p class="footer__tagline">
+              The all-in-one home management app. Track expenses, manage inventory, and stay on top
+              of your bills.
+            </p>
+            <p class="footer__maker" style="font-size: 1.125rem">
+              Proudly built in Atlanta, USA 🇺🇸
+            </p>
+          </div>
+
+          <nav class="footer__links" aria-label="Footer navigation">
+            <div class="footer__col">
+              <span class="footer__col-title">Product</span>
+              <a href="/expense-tracking">Expense Tracking</a>
+              <a href="/home-inventory">Home Inventory</a>
+              <a href="/recurring-bills">Recurring Bills</a>
+              <a href="/pricing.html">Pricing</a>
+            </div>
+            <div class="footer__col">
+              <span class="footer__col-title">Account</span>
+              <a href="https://app.yurthome.co/login">Log In</a>
+              <a href="https://app.yurthome.co/signup">Sign Up Free</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; 2025 Yurt. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js"></script>
+  </body>
+</html>

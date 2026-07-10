@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recurring Bills — Yurt</title>
+    <meta
+      name="description"
+      content="Bring every recurring home bill together in one place. Yurt reminds you before bills are due so you never pay a late fee again."
+    />
+    <meta property="og:title" content="Recurring Bills — Yurt" />
+    <meta
+      property="og:description"
+      content="Every bill, right on time. Track and get reminders for all your recurring home costs with Yurt."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="/assets/main.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fonts.googleapis.com/css?family=Golos+Text:wght@400..900"
+      type="text/css"
+    />
+
+    <% if (isProd) { %>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-9F7dEWKoi0O8BsMWsl3Kr.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <% } %>
+  </head>
+  <body>
+    <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="Yurt home">
+          <img
+            src="/images/logos/full-no-bg.png"
+            alt="Yurt Logo"
+            class="nav__logo-mark"
+            height="20px"
+            loading="eager"
+          />
+        </a>
+
+        <div class="nav__links">
+          <div class="nav__dropdown">
+            <button class="nav__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              Features
+              <svg
+                class="nav__dropdown-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </button>
+            <div class="nav__dropdown-menu">
+              <a href="/expense-tracking">Expense Tracking</a>
+              <a href="/home-inventory">Home Inventory</a>
+              <a href="/recurring-bills">Bill Management</a>
+            </div>
+          </div>
+          <a href="/pricing.html">Pricing</a>
+        </div>
+
+        <div class="nav__actions">
+          <a href="https://app.yurthome.co/login" class="nav__login btn btn--white">Log in</a>
+          <a href="https://app.yurthome.co/signup" class="btn btn--primary">Start for Free</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── Landing hero ────────────────────────────────────────────────────── -->
+    <header class="landing-hero landing-hero--purple" aria-labelledby="landing-title">
+      <div class="landing-hero__inner">
+        <p class="feature__tag feature__tag--purple landing-hero__eyebrow">
+          <svg width="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.755 2H7.24502C6.08614 2 5.50671 2 5.03939 2.16261C4.15322 2.47096 3.45748 3.18719 3.15795 4.09946C3 4.58055 3 5.17705 3 6.37006V20.3742C3 21.2324 3.985 21.6878 4.6081 21.1176C4.97417 20.7826 5.52583 20.7826 5.8919 21.1176L6.375 21.5597C7.01659 22.1468 7.98341 22.1468 8.625 21.5597C9.26659 20.9726 10.2334 20.9726 10.875 21.5597C11.5166 22.1468 12.4834 22.1468 13.125 21.5597C13.7666 20.9726 14.7334 20.9726 15.375 21.5597C16.0166 22.1468 16.9834 22.1468 17.625 21.5597L18.1081 21.1176C18.4742 20.7826 19.0258 20.7826 19.3919 21.1176C20.015 21.6878 21 21.2324 21 20.3742V6.37006C21 5.17705 21 4.58055 20.842 4.09946C20.5425 3.18719 19.8468 2.47096 18.9606 2.16261C18.4933 2 17.9139 2 16.755 2Z"
+              stroke="#4F14C8"
+              stroke-width="1.5"
+            />
+            <path
+              d="M9.5 10.4L10.9286 12L14.5 8"
+              stroke="#4F14C8"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path d="M7.5 15.5H16.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          Recurring Bills
+        </p>
+        <h1 class="landing-hero__title" id="landing-title">Every Bill, Right on Time</h1>
+        <p class="landing-hero__sub">
+          Between the mortgage, utilities, insurance, and subscriptions, it's easy for something to
+          slip through the cracks. Yurt brings all your recurring home costs together so you always
+          know what's coming — and when.
+        </p>
+        <div class="landing-hero__actions">
+          <a href="https://app.yurthome.co/signup" class="btn btn--accent btn--lg">
+            Start for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--outline btn--lg">View Pricing</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── Feature detail ──────────────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="landing-title">
+      <div class="feature">
+        <div class="feature__visual">
+          <img
+            src="/images/app-recurring-bills.png"
+            alt="Recurring bills list showing upcoming payment dates and amounts"
+            class="feature__mockup"
+            width="760"
+            height="520"
+            loading="lazy"
+          />
+          <div class="feature__badge feature__badge--bottom-right">
+            <div class="feature__badge-icon feature__badge-icon--yellow">🔔</div>
+            <span>Internet due in 3 days</span>
+          </div>
+        </div>
+
+        <div class="feature__copy">
+          <p class="feature__body">
+            Between the mortgage, utilities, insurance, car loans, and streaming subscriptions, it's
+            easy for something to slip through the cracks. Yurt brings all your recurring home costs
+            together in one place so you always know exactly what's coming — and when.
+          </p>
+          <ul class="feature__list" role="list">
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--purple" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              See every home-related subscription and bill at a glance
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--purple" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Get reminders before bills are due. Never pay a late fee again
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--purple" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Spot price increases over time and shop for better rates
+            </li>
+            <li class="feature__list-item">
+              <span class="feature__check feature__check--purple" aria-hidden="true">
+                <svg viewBox="0 0 11 11">
+                  <path
+                    d="M1.5 5.5l2.5 2.5 5.5-5.5"
+                    stroke="#6b5800"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Understand your true monthly housing costs — mortgage is just the beginning
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA Banner ──────────────────────────────────────────────────────── -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="cta-banner__inner">
+        <h2 class="cta-banner__title" id="cta-title">Start organizing your home today</h2>
+        <p class="cta-banner__sub">
+          Join homeowners who use Yurt to protect their investment, simplify tax season, and never
+          miss a payment. No credit card required to get started.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="https://app.yurthome.co/signup" class="btn btn--white btn--lg">
+            Start for Free
+          </a>
+          <a href="/pricing.html" class="btn btn--ghost-white btn--lg">See Pricing</a>
+        </div>
+        <p class="cta-banner__note">Free plan available &middot; Upgrade anytime</p>
+      </div>
+    </section>
+
+    <!-- ─── Footer ──────────────────────────────────────────────────────────── -->
+    <footer class="footer" aria-label="Site footer">
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="/" class="footer__logo" aria-label="Yurt home">
+              <span class="footer__logo-mark" aria-hidden="true">
+                <img src="/images/logos/y.png" alt="Yurt Logo" loading="eager" />
+              </span>
+              Yurt
+            </a>
+            <p class="footer__tagline">
+              The all-in-one home management app. Track expenses, manage inventory, and stay on top
+              of your bills.
+            </p>
+            <p class="footer__maker" style="font-size: 1.125rem">
+              Proudly built in Atlanta, USA 🇺🇸
+            </p>
+          </div>
+
+          <nav class="footer__links" aria-label="Footer navigation">
+            <div class="footer__col">
+              <span class="footer__col-title">Product</span>
+              <a href="/expense-tracking">Expense Tracking</a>
+              <a href="/home-inventory">Home Inventory</a>
+              <a href="/recurring-bills">Recurring Bills</a>
+              <a href="/pricing.html">Pricing</a>
+            </div>
+            <div class="footer__col">
+              <span class="footer__col-title">Account</span>
+              <a href="https://app.yurthome.co/login">Log In</a>
+              <a href="https://app.yurthome.co/signup">Sign Up Free</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; 2025 Yurt. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js"></script>
+  </body>
+</html>
