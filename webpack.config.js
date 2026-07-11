@@ -95,6 +95,13 @@ var config = {
       chunks: ['main'],
       templateParameters: { isProd: isProd }
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: '404.html',
+      template: './src/404.html',
+      chunks: ['main'],
+      templateParameters: { isProd: isProd }
+    }),
     new CopyPlugin({
       patterns: [
         {
