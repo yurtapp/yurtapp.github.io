@@ -54,3 +54,72 @@
   font-size: $text-sm;
   opacity: 0.6;
 }
+
+// ─── Persona CTA (feature landing pages) ──────────────────────────────────────
+
+.cta-persona {
+  padding: $section-padding-y $container-padding;
+}
+
+.cta-persona__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: linear-gradient(135deg, $jungle-green 0%, #0ea37a 100%);
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-xl;
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cta-persona__media {
+  min-height: 260px;
+  background: #f5f2e9;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+.cta-persona__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 2rem;
+  color: $white;
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background-image: radial-gradient(circle, rgb(255 255 255 / 6%) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.cta-persona__title {
+  position: relative;
+  font-size: clamp($text-2xl, 3.5vw, $text-4xl);
+  font-weight: 800;
+  line-height: 1.2;
+  color: $canary-yellow;
+  letter-spacing: -0.025em;
+}
+
+.cta-persona__actions {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
