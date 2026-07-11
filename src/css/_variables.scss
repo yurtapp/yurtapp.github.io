@@ -58,7 +58,9 @@ $text-6xl: 3.75rem; //  60px
 $section-padding-y: 5rem;
 $container-max-width: 1200px;
 $container-padding: 1.5rem;
-$nav-height: 80px;
+$nav-height: 64px;
+$subnav-height: 48px;
+$header-height: $nav-height + $subnav-height; // full fixed header (main nav + subnav)
 
 // ─── Breakpoints ──────────────────────────────────────────────────────────────
 

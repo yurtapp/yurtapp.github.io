@@ -1,20 +1,27 @@
 @use 'variables' as *;
 
-.nav {
+// ─── Fixed header wrapper (main nav + subnav) ─────────────────────────────────
+
+.site-header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 100;
-  height: $nav-height;
-  font-size: $text-lg;
-  font-weight: 700;
-  background: $midnight-eagle-green;
-  border-bottom: 1px solid $color-border;
+  transition: box-shadow 0.15s ease;
 
   &.is-scrolled {
     box-shadow: $shadow-md;
   }
+}
+
+// ─── Main navigation bar ──────────────────────────────────────────────────────
+
+.nav {
+  height: $nav-height;
+  font-size: $text-lg;
+  font-weight: 700;
+  background: $midnight-eagle-green;
 }
 
 .nav__inner {
@@ -40,50 +47,79 @@
   height: 33px;
 }
 
-.nav__links {
-  display: none;
-  gap: 2rem;
+.nav__actions {
+  display: flex;
+  gap: 0.75rem;
   align-items: center;
+}
+
+.nav__login {
+  display: none;
 
   @media (min-width: $bp-md) {
-    display: flex;
-  }
-
-  a {
-    font-weight: 500;
-    color: $color-text-muted;
-    transition: color 0.15s ease;
-
-    &:hover {
-      color: $off-white;
-    }
-
-    &.is-active {
-      color: $color-primary;
-    }
+    display: block;
   }
 }
+
+// ─── Subnav (secondary bar with primary section links) ────────────────────────
+
+.subnav {
+  height: $subnav-height;
+  background: mix($white, $midnight-eagle-green, 7%);
+  border-top: 1px solid rgb(255 255 255 / 8%);
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+.subnav__inner {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: $container-max-width;
+  height: 100%;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+// Shared styling for the top-level subnav items (Pricing link + Features trigger)
+%subnav-item {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  font-size: $text-base;
+  font-weight: 700;
+  color: $off-white;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    color: $white;
+    border-bottom-color: $jungle-green;
+  }
+}
+
+.subnav__inner > a {
+  @extend %subnav-item;
+}
+
+// ─── Features dropdown ────────────────────────────────────────────────────────
 
 .nav__dropdown {
   position: relative;
+  display: flex;
+  align-items: stretch;
 }
 
 .nav__dropdown-trigger {
-  display: flex;
-  gap: 0.3rem;
-  align-items: center;
-  padding: 0;
-  font-size: $text-lg;
-  font-weight: 500;
-  color: $color-text-muted;
-  transition: color 0.15s ease;
-
-  &:hover {
-    color: $off-white;
-  }
+  @extend %subnav-item;
 
   &[aria-expanded='true'] {
-    color: $off-white;
+    color: $white;
+    border-bottom-color: $jungle-green;
   }
 }
 
@@ -97,8 +133,8 @@
 
 .nav__dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
+  top: 100%;
+  left: 0;
   display: none;
   min-width: 200px;
   padding: 0.375rem;
@@ -106,7 +142,6 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   box-shadow: $shadow-md;
-  transform: translateX(-50%);
 
   .nav__dropdown.is-open & {
     display: block;
@@ -115,7 +150,7 @@
   a {
     display: block;
     padding: 0.5rem 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     color: $color-text-muted;
     border-radius: $radius-sm;
     transition:
@@ -126,19 +161,5 @@
       color: $color-text-dark;
       background-color: $cultured;
     }
-  }
-}
-
-.nav__actions {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.nav__login {
-  display: none;
-
-  @media (min-width: $bp-md) {
-    display: block;
   }
 }

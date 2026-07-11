@@ -2,7 +2,7 @@ import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Nav: add shadow on scroll ──────────────────────────────────────────────
-  const nav = document.querySelector('.nav');
+  const nav = document.querySelector('.site-header');
 
   if (nav) {
     const onScroll = () => {

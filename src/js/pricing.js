@@ -19,7 +19,7 @@ const PRICES = {
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Nav scroll shadow ──────────────────────────────────────────────────────
-  const nav = document.querySelector('.nav');
+  const nav = document.querySelector('.site-header');
   if (nav) {
     const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });

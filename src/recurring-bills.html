@@ -46,19 +46,28 @@
   </head>
   <body>
     <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
-    <nav class="nav" aria-label="Main navigation">
-      <div class="nav__inner">
-        <a href="/" class="nav__logo" aria-label="Yurt home">
-          <img
-            src="/images/logos/full-no-bg.png"
-            alt="Yurt Logo"
-            class="nav__logo-mark"
-            height="20px"
-            loading="eager"
-          />
-        </a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+          <a href="/" class="nav__logo" aria-label="Yurt home">
+            <img
+              src="/images/logos/full-no-bg.png"
+              alt="Yurt Logo"
+              class="nav__logo-mark"
+              height="20px"
+              loading="eager"
+            />
+          </a>
 
-        <div class="nav__links">
+          <div class="nav__actions">
+            <a href="https://app.yurthome.co/login" class="nav__login btn btn--white">Log in</a>
+            <a href="https://app.yurthome.co/signup" class="btn btn--primary">Start for Free</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="subnav">
+        <nav class="subnav__inner" aria-label="Secondary navigation">
           <div class="nav__dropdown">
             <button class="nav__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
               Features
@@ -86,14 +95,9 @@
             </div>
           </div>
           <a href="/pricing.html">Pricing</a>
-        </div>
-
-        <div class="nav__actions">
-          <a href="https://app.yurthome.co/login" class="nav__login btn btn--white">Log in</a>
-          <a href="https://app.yurthome.co/signup" class="btn btn--primary">Start for Free</a>
-        </div>
+        </nav>
       </div>
-    </nav>
+    </header>
 
     <!-- ─── Landing hero ────────────────────────────────────────────────────── -->
     <header class="landing-hero landing-hero--purple" aria-labelledby="landing-title">
