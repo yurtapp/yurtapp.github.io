@@ -101,7 +101,9 @@ var config = {
           from: '**/*',
           context: `${SRC_DIR}/images`,
           to: `${OUT_DIR}/images`
-        }
+        },
+        { from: 'robots.txt', context: SRC_DIR, to: OUT_DIR },
+        { from: 'sitemap.xml', context: SRC_DIR, to: OUT_DIR }
       ]
     }),
   ]

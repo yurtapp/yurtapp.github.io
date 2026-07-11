@@ -8,6 +8,29 @@
       name="description"
       content="Simple, transparent pricing for Yurt. Start free with Homeowner Basic or upgrade to Homeowner Plus for unlimited access."
     />
+    <meta property="og:title" content="Pricing — Yurt" />
+    <meta
+      property="og:description"
+      content="Simple, transparent pricing. Start free with Homeowner Basic or upgrade to Homeowner Plus for unlimited access."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yurthome.co/pricing.html" />
+    <meta property="og:site_name" content="Yurt" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://yurthome.co/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pricing — Yurt" />
+    <meta
+      name="twitter:description"
+      content="Simple, transparent pricing. Start free or upgrade to Homeowner Plus for unlimited access."
+    />
+    <meta name="twitter:image" content="https://yurthome.co/images/og-image.png" />
+    <link rel="canonical" href="https://yurthome.co/pricing.html" />
+    <meta name="theme-color" content="#00343d" />
+    <link rel="icon" type="image/png" href="/images/logos/y.png" />
+    <link rel="apple-touch-icon" href="/images/logos/y.png" />
     <link rel="stylesheet" href="/assets/pricing.css" />
 
     <!-- Google Fonts -->
@@ -37,6 +60,55 @@
       plausible.init();
     </script>
     <% } %>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I try Yurt for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our free Homeowner Basic plan gives you access to all core features with a limit of 10 inventory items and 10 tracked bills. No credit card required — just sign up and start organizing your home immediately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What counts as a \"property\"?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A property is any home or piece of real estate you want to manage — your primary residence, a vacation home, a rental property, or any other address. Each property gets its own set of expenses, inventory, and bills. Additional properties can be added to your account at the same Homeowner Plus rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does annual billing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The yearly plan is billed as a single upfront payment once per year. You save significantly compared to paying month-to-month — it's like getting over a month free. You can switch from monthly to annual billing at any time from your account settings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel anytime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. You can cancel your Homeowner Plus subscription at any time from your account settings. When you cancel, your account reverts to the free Homeowner Basic plan at the end of your current billing period. Your data is never deleted."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can multiple people manage the same property?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Homeowner Plus includes unlimited collaborators per property. Invite your partner, spouse, property manager, or anyone else who helps manage the home. All collaborators can view and update expenses, inventory, and bills."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
@@ -141,11 +213,11 @@
             <p class="pricing-card__per-prop">&nbsp;</p>
 
             <a
-              href="https://app.getyurt.com/signup"
+              href="https://app.yurthome.co/signup"
               class="btn btn--outline pricing-card__cta"
-              aria-label="Get started free with Homeowner Basic"
+              aria-label="Start for free with Homeowner Basic"
             >
-              Get Started Free
+              Start for Free
             </a>
 
             <div class="pricing-card__divider" aria-hidden="true"></div>
@@ -239,7 +311,7 @@
             </p>
 
             <a
-              href="https://app.getyurt.com/signup?plan=plus"
+              href="https://app.yurthome.co/signup?plan=plus"
               class="btn btn--primary pricing-card__cta"
               aria-label="Get started with Homeowner Plus"
             >
@@ -464,21 +536,21 @@
           <nav class="footer__links" aria-label="Footer navigation">
             <div class="footer__col">
               <span class="footer__col-title">Product</span>
-              <a href="/#expenses">Expense Tracking</a>
-              <a href="/#inventory">Home Inventory</a>
-              <a href="/#bills">Recurring Bills</a>
+              <a href="/expense-tracking">Expense Tracking</a>
+              <a href="/home-inventory">Home Inventory</a>
+              <a href="/recurring-bills">Recurring Bills</a>
               <a href="/pricing.html">Pricing</a>
             </div>
             <div class="footer__col">
               <span class="footer__col-title">Account</span>
-              <a href="https://app.getyurt.com/login">Log In</a>
-              <a href="https://app.getyurt.com/signup">Sign Up Free</a>
+              <a href="https://app.yurthome.co/login">Log In</a>
+              <a href="https://app.yurthome.co/signup">Sign Up Free</a>
             </div>
           </nav>
         </div>
 
         <div class="footer__bottom">
-          <p class="footer__copy">&copy; 2025 Yurt. All rights reserved.</p>
+          <p class="footer__copy">&copy; <%= new Date().getFullYear() %> Yurt. All rights reserved.</p>
         </div>
       </div>
     </footer>
