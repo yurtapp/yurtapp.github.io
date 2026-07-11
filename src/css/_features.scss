@@ -10,9 +10,17 @@
   background: $cultured;
 }
 
-// Homepage feature bands — soft light-blue backdrop
+// Homepage feature bands — soft warm cream backdrop
 .section--feature {
-  background: $color-bg-light;
+  background: $cream;
+}
+
+// Simple divider between feature bands
+.feature-divider {
+  width: 100%;
+  height: 1px;
+  background: $cadet-gray;
+  opacity: 0.35;
 }
 
 // ─── Section header (used on pricing page, etc.) ─────────────────────────────
@@ -142,7 +150,7 @@
 .feature__media {
   display: block;
   width: 100%;
-  max-width: 420px;
+  max-width: 350px;
   margin: 0 auto;
 
   &:hover .feature__image {
