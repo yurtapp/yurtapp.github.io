@@ -70,23 +70,50 @@
             "@id": "https://yurthome.co/#organization",
             "name": "Yurt",
             "url": "https://yurthome.co/",
-            "logo": "https://yurthome.co/images/logos/full-no-bg.png",
-            "description": "Yurt is an all-in-one home management app that helps homeowners track expenses, manage their home inventory, and stay on top of recurring bills."
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://yurthome.co/images/logos/full-no-bg.png"
+            },
+            "slogan": "Home Management, Simplified.",
+            "description": "Yurt is an all-in-one home management app that helps homeowners track expenses, manage their home inventory, and stay on top of recurring bills.",
+            "foundingLocation": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Atlanta",
+                "addressRegion": "GA",
+                "addressCountry": "US"
+              }
+            }
           },
           {
             "@type": "WebSite",
             "@id": "https://yurthome.co/#website",
             "url": "https://yurthome.co/",
             "name": "Yurt",
+            "inLanguage": "en-US",
             "publisher": { "@id": "https://yurthome.co/#organization" }
           },
           {
             "@type": "SoftwareApplication",
+            "@id": "https://yurthome.co/#app",
             "name": "Yurt",
             "url": "https://yurthome.co/",
             "operatingSystem": "Web",
             "applicationCategory": "LifestyleApplication",
             "description": "Yurt combines expense tracking, home inventory, and bill management to give homeowners a complete picture of their property.",
+            "publisher": { "@id": "https://yurthome.co/#organization" },
+            "image": "https://yurthome.co/images/og-image.png",
+            "screenshot": [
+              "https://yurthome.co/images/app-expenses.png",
+              "https://yurthome.co/images/app-inventory.png",
+              "https://yurthome.co/images/app-recurring-bills.png"
+            ],
+            "featureList": [
+              "Expense tracking",
+              "Home inventory management",
+              "Recurring bill tracking and reminders"
+            ],
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "USD",
