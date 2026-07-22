@@ -5,7 +5,7 @@
   "private": true,
   "packageManager": "yarn@1.22.22",
   "scripts": {
-    "build": "rm -rf ./docs && NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js --stats-modules-space 999",
+    "build": "rm -f $(find ./docs -type f ! -name \"CNAME\") && NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js --stats-modules-space 999",
     "dev": "NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack serve --config webpack.config.js",
     "format": "prettier --write \"src/**/*.{js,scss,html}\"",
     "lint:css": "stylelint \"src/css/**/*.scss\" --fix",
