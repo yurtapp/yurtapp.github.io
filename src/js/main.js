@@ -1,6 +1,12 @@
 import '../css/main.scss';
+import { initAttribution } from './attribution';
+import { initCtaEvents } from './cta-events';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ─── Analytics ──────────────────────────────────────────────────────────────
+  initAttribution();
+  initCtaEvents();
+
   // ─── Nav: add shadow on scroll ──────────────────────────────────────────────
   const nav = document.querySelector('.site-header');
 

@@ -1,4 +1,6 @@
 import '../css/pricing.scss';
+import { initAttribution } from './attribution';
+import { initCtaEvents } from './cta-events';
 
 const PRICES = {
   monthly: {
@@ -18,6 +20,10 @@ const PRICES = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ─── Analytics ──────────────────────────────────────────────────────────────
+  initAttribution();
+  initCtaEvents();
+
   // ─── Nav scroll shadow ──────────────────────────────────────────────────────
   const nav = document.querySelector('.site-header');
   if (nav) {
