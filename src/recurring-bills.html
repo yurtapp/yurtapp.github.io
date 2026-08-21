@@ -44,8 +44,8 @@
     />
 
     <% if (isProd) { %>
-    <!-- Privacy-friendly analytics by Plausible -->
-    <script async src="https://plausible.io/js/pa-9F7dEWKoi0O8BsMWsl3Kr.js"></script>
+    <!-- Privacy-friendly analytics -->
+    <script async src="https://app.yurthome.co/pa.js"></script>
     <script>
       ((window.plausible =
         window.plausible ||
@@ -57,7 +57,7 @@
           function (i) {
             plausible.o = i || {};
           }));
-      plausible.init();
+      plausible.init({ endpoint: 'https://app.yurthome.co/pa/e' });
     </script>
     <% } %>
 
