@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+// ─── Secondary features ───────────────────────────────────────────────────────
+// Three small, static boxes between the last feature band and the CTA banner.
+// Borders reuse the same three accents as the .feature__image bands above; the
+// icons stay a single $color-primary so this reads as a quieter tier.
+
+.more-features__inner {
+  max-width: $container-max-width;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
+.more-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.more-features__item {
+  padding: 2rem;
+  background: $white;
+  border: 3px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+
+  &--green {
+    border-color: $jungle-green;
+  }
+
+  &--blue {
+    border-color: $dark-cornflower-blue;
+  }
+
+  &--purple {
+    border-color: $dark-purple;
+  }
+}
+
+.more-features__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.25rem;
+  color: $color-primary;
+  background: $alice-blue;
+  border-radius: $radius-full;
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.more-features__title {
+  margin-bottom: 0.5rem;
+  font-size: $text-xl;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $color-text-dark;
+  letter-spacing: -0.02em;
+}
+
+.more-features__body {
+  font-size: $text-base;
+  line-height: 1.7;
+  color: $color-text-body;
+}

@@ -134,7 +134,7 @@ if (config.mode == 'development') {
       overlay: true,
       logging: 'info',
     },
-    port: 3035,
+    port: 4321,
     watchFiles: {
       options: {
         ignored: '/node_modules/'

@@ -27,7 +27,7 @@ builds to `docs/expense-tracking/index.html`.
 
 ```bash
 yarn install
-yarn dev          # dev server at http://localhost:3035, hot reload
+yarn dev          # dev server at http://localhost:4321, hot reload
 yarn build        # production build into docs/
 yarn lint:js      # eslint --fix over src/js
 yarn lint:css     # stylelint --fix over src/css

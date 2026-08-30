@@ -10,7 +10,7 @@ yarn install
 
 ## Development
 
-Starts a local dev server at http://localhost:3035 with hot reloading.
+Starts a local dev server at http://localhost:4321 with hot reloading.
 
 ```bash
 yarn run dev
