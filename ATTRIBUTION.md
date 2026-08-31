@@ -7,7 +7,6 @@ across two codebases:
 - **`app.yurthome.co`** — the Rails app. Separate repo (`../yurt`).
 
 Two hosts means attribution has to be carried across the boundary deliberately.
-Nothing about it is automatic.
 
 ---
 
@@ -34,7 +33,7 @@ flowchart TD
     A["Visitor arrives at yurthome.co<br/>?utm_source=… / gclid=… / a referrer"] --> B["attribution.js writes<br/>yh_attr_first + yh_attr_last<br/>cookies on .yurthome.co"]
     B --> C["Browses the site<br/>internal hops never overwrite"]
     C --> D["Clicks a signup CTA<br/>cta-events.js fires 'Signup CTA: Hero'<br/>href already decorated with utm_*"]
-    D --> E["Lands on app.yurthome.co/signup or /login<br/>capture_attribution reads the cookie<br/>into session[:attribution]"]
+    D --> E["Lands on app.yurthome.co/signup or /login<br/>capture_attribution reads the cookie<br/>and/or  params into session[:attribution]"]
     E --> F["Account created<br/>BroadcastSignup POSTs 'Signup' to Plausible<br/>server-side, campaign params as props"]
     F -.-> G["StoreAttribution<br/>(wired up, currently a no-op)"]
 ```
@@ -84,9 +83,7 @@ are a contract with the dashboard — a redesign must not silently rename a goal
 
 ---
 
-## Rails app (`../yurt`)
-
-Implemented in commit `50f7a3d5`.
+## Rails app
 
 | File | Role |
 |---|---|
@@ -96,37 +93,33 @@ Implemented in commit `50f7a3d5`.
 | `app/services/analytics/plausible_client.rb` | The proxy client (script fetch + event relay) |
 | `app/controllers/analytics_controller.rb` | `GET /pa.js`, `POST /pa/e` |
 
-**Capture runs on two pages only** — `sessions#new` (`/login`) and
-`registrations#new` (`/signup`), via `before_action :capture_attribution`. It is
-*not* a global before_action, so a visitor who lands anywhere else in the app
-first is not captured. Within the session, first touch wins: once
-`session[:attribution]` is set it is never replaced. The cookie is preferred
-over URL params, and `yh_attr_last` is preferred over `yh_attr_first`.
 
-Self-referrals are suppressed here too, since `request.referer` on
-`/signup` is legitimately `https://yurthome.co/...`. The check uses
-`ENV['DOMAIN']`, not a hardcoded host.
+Flow:
 
-**The `Signup` event is fired server-side**, from `BroadcastSignup`, after the
-user is actually created — called from `registrations#create` and from
-`omniauth_callbacks#google_oauth2` (new users only). It sends the campaign
-params as **custom props**, with `domain: ENV['DOMAIN']`, and is gated on
-`PLAUSIBLE_ANALYTICS_KEY` being present.
+1. The marketing site would have set cookies with attribution data and store it in either `yh_attr_first` or `yh_attr_last`. The attribution data has keys `CaptureAttribution::CAMPAIGN_PARAMS`.
 
-A click on "Create account" is only an *attempt*, which is why this is not
-client-side: validation failures and retries would each count as a conversion.
+2. The Rails server captures attribution on `devise/sessions#new` and `devise/registrations#new` (the `/`ogin` and `/signup` pages)
 
-**The tracker only loads on unauthenticated pages** (`!user_signed_in?` in the
-layout). Pageviews inside the signed-in app are deliberately not tracked.
+3. The plausible analytics script only loads on unauthenticated pages (in `app/views/layouts/application.html.erb`). That should include `/login` and `/signup` above
+
+4. When signing up and a user is succesfully created, the app calls a series of post-creation services in `@app/controllers/devise/custom/registrations_controller.rb` and `@app/controllers/devise/custom/omniauth_callbacks_controller.rb`.
+
+5. One service (`app/services/analytics/store_attribution.rb`) stores attribution (not yet implemented)
+
+6. The other service (`app/services/analytics/broadcast_signup.rb`) sends the signup event to Plausible
+
+
+Notes:
+
+* Self-referrals are suppressed here too, since `request.referer` on `/signup` is legitimately `https://yurthome.co/...`. The check uses `ENV['DOMAIN']`, not a hardcoded host.
+
+* A click on "Create account" is only an *attempt*, which is why this is not client-side: validation failures and retries would each count as a conversion.
 
 ---
 
 ## The first-party analytics proxy
 
-Ad blockers match on the `plausible.io` domain, so requests to it never leave the
-browser — losing the tracker *and* every event. Rails re-serves both halves from
-our own domain. **Both halves must be proxied**; blocking the event endpoint
-alone is enough to lose the pageview.
+The Plausible script is proxied through the rails app, so we can deliver the script as a first-party script.
 
 | Route | Serves |
 |---|---|
