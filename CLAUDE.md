@@ -23,6 +23,32 @@ must run on all pages has to be wired into **both** entry points.
 Feature pages are emitted into directories for clean URLs — `src/expense-tracking.html`
 builds to `docs/expense-tracking/index.html`.
 
+## Features
+
+| Feature | Landing page | Surfaced on the homepage as |
+|---|---|---|
+| Expense tracking | `/expense-tracking` | Full feature section |
+| Home inventory | `/home-inventory` | Full feature section |
+| Recurring bills | `/recurring-bills` | Full feature section |
+| Tasks and automated reminders | — | "Also Included" card |
+| Document storage | — | "Also Included" card, `Coming Soon` badge |
+| Collaborators | — | "Also Included" card |
+
+Tasks (one-off and recurring tasks/reminders) shipped in the app but has no
+landing page of its own — it lives only in the "Also Included" grid on
+`index.html`, so it is deliberately absent from the hero copy, the Features
+dropdown, the footer tagline, and `sitemap.xml`. It *is* named in the homepage
+metadata (`description`, `og:`/`twitter:` descriptions, and the
+`SoftwareApplication` `featureList` in the JSON-LD block). Promoting it later
+means adding `src/tasks.html`, a webpack entry, the nav dropdown link on **all
+six** pages, and a `sitemap.xml` entry.
+
+The homepage metadata is the one place that enumerates every feature — when a
+feature ships or changes name, update `src/index.html`'s meta descriptions and
+the JSON-LD `featureList` together. Pricing-card feature lists in
+`src/pricing.html` are a separate, plan-scoped list and only change when a
+feature is actually gated by plan.
+
 ## Commands
 
 ```bash
