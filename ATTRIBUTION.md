@@ -16,9 +16,9 @@ Two hosts means attribution has to be carried across the boundary deliberately.
 |---|---|---|
 | Answers | "Which channels drive signups?" | "Where did *this* user come from?" |
 | Grain | Aggregate, session-scoped | Per-user, permanent |
-| Model | Last touch | First touch (last touch also stored) |
+| Model | Last touch | Last-touch cookie, frozen at signup |
 | Mechanism | Shared Plausible site across both hosts | `.yurthome.co` cookie |
-| Status | **Built** | **Not built** — see *Status* below |
+| Status | **Built** | **Built** |
 
 They will disagree, and neither is wrong. Plausible answers "which channel is
 working this month"; the database answers "what are affiliate users worth."
@@ -34,8 +34,9 @@ flowchart TD
     B --> C["Browses the site<br/>internal hops never overwrite"]
     C --> D["Clicks a signup CTA<br/>cta-events.js fires 'Signup CTA: Hero'<br/>href already decorated with utm_*"]
     D --> E["Lands on app.yurthome.co/signup or /login<br/>capture_attribution reads the cookie<br/>and/or  params into session[:attribution]"]
-    E --> F["Account created<br/>BroadcastSignup POSTs 'Signup' to Plausible<br/>server-side, campaign params as props"]
-    F -.-> G["StoreAttribution<br/>(wired up, currently a no-op)"]
+    E --> F["Account created"]
+    F --> G["StoreAttribution writes one<br/>signup_attributions row<br/>per-user, permanent"]
+    G --> H["BroadcastSignup POSTs 'Signup' to Plausible<br/>server-side, campaign params as props"]
 ```
 
 ---
@@ -88,8 +89,9 @@ are a contract with the dashboard — a redesign must not silently rename a goal
 | File | Role |
 |---|---|
 | `app/controllers/concerns/capture_attribution.rb` | Read cookie/params into `session[:attribution]` |
+| `app/services/analytics/store_attribution.rb` | Persist `session[:attribution]` as a `SignupAttribution` row |
 | `app/services/analytics/broadcast_signup.rb` | POST the `Signup` event to Plausible, server-side |
-| `app/services/analytics/store_attribution.rb` | Persist onto the user — **no-op, not built** |
+| `app/models/signup_attribution.rb` | The per-user record — one row per signup, never updated |
 | `app/services/analytics/plausible_client.rb` | The proxy client (script fetch + event relay) |
 | `app/controllers/analytics_controller.rb` | `GET /pa.js`, `POST /pa/e` |
 
@@ -104,9 +106,12 @@ Flow:
 
 4. When signing up and a user is succesfully created, the app calls a series of post-creation services in `@app/controllers/devise/custom/registrations_controller.rb` and `@app/controllers/devise/custom/omniauth_callbacks_controller.rb`.
 
-5. One service (`app/services/analytics/store_attribution.rb`) stores attribution (not yet implemented)
+5. One service (`app/services/analytics/store_attribution.rb`) writes the `signup_attributions` row
 
 6. The other service (`app/services/analytics/broadcast_signup.rb`) sends the signup event to Plausible
+
+   Order matters: `StoreAttribution` runs first and deliberately leaves
+   `session[:attribution]` in place, because `BroadcastSignup` still reads it.
 
 
 Notes:
@@ -114,6 +119,39 @@ Notes:
 * Self-referrals are suppressed here too, since `request.referer` on `/signup` is legitimately `https://yurthome.co/...`. The check uses `ENV['DOMAIN']`, not a hardcoded host.
 
 * A click on "Create account" is only an *attempt*, which is why this is not client-side: validation failures and retries would each count as a conversion.
+
+### What gets stored
+
+`signup_attributions` — one row per user, `user_id` uniquely indexed, written
+once at signup and never updated afterwards.
+
+| Column | Source |
+|---|---|
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` | Cookie, else the URL params |
+| `gclid`, `msclkid`, `ref`, `source` | Same |
+| `referrer` | The cookie's `referrer`, else the app's own external referrer |
+| `landing_page` | The cookie's `landing_page`, else the app path that captured it |
+| `first_seen_at` | When the app captured the attribution |
+
+Three things to know before querying it:
+
+- **Every user gets a row**, including a direct signup with nothing captured —
+  those have every campaign column `NULL`. An all-`NULL` row means "arrived
+  direct"; a *missing* row means something broke.
+- **`referrer` and `landing_page` usually describe the marketing site, not the
+  app.** When the cookie is present it carries its own values, and the Rails
+  side only fills in its own as a fallback — so `landing_page` is typically `/`
+  or `/pricing.html`, not `/users/sign_up`.
+- **`first_seen_at` is when the *app* first saw the visitor** — the moment they
+  hit `/login` or `/signup` — not when they first hit the marketing site. The
+  cookie's own `ts` is dropped on the way in, so the true first-touch timestamp
+  lives only in the cookie and is never persisted.
+
+Values are truncated to 500 characters, since campaign params are attacker- and
+typo-controlled. The service also swallows any failure: the `User` is already
+committed by the time it runs, and losing an analytics row is never worth
+failing a signup over. A `[Analytics::StoreAttribution]` line in the logs is the
+signal that a row is missing.
 
 ---
 
@@ -137,16 +175,17 @@ needed.
 ## Status
 
 **Built:** everything on the marketing site; the proxy; Rails-side capture; the
-server-side `Signup` event, including the Google OAuth signup path.
+`signup_attributions` table and `StoreAttribution`; the server-side `Signup`
+event. Both halves cover the password and Google OAuth signup paths.
 
 **Not built:**
 
-- **`signup_attributions` — the whole per-user database half.** There is no
-  model or table; `StoreAttribution` is deliberately an empty `call` already
-  wired into both signup paths, so building it is a change to that class alone.
-  It must not delete `session[:attribution]` before `BroadcastSignup` runs.
 - **`Signup Started`.** No submit-button event exists, so there is no form
   abandonment number today.
+- **Nothing reads `signup_attributions` yet.** The rows accumulate from the
+  first deploy onward, but there is no admin view or report over them — today
+  it is a `rails console` table. It does not backfill, so users who signed up
+  before it shipped have no row at all (distinct from an all-`NULL` row).
 
 ---
 
@@ -167,7 +206,10 @@ server-side `Signup` event, including the Google OAuth signup path.
    site no longer hardcodes a key; it gets whatever the Rails env var points at.
    If it drifts, the hosts land in different Plausible sites, sessions stop being
    shared, and every signup is attributed to `yurthome.co` as a referral.
-7. **`ENV['DOMAIN']` does double duty** — self-referral suppression *and* the
+7. **`StoreAttribution` runs before `BroadcastSignup`, and leaves
+   `session[:attribution]` alone.** Both read the same session entry; consuming
+   it in the first service silently strips the props off every `Signup` event.
+8. **`ENV['DOMAIN']` does double duty** — self-referral suppression *and* the
    Plausible site domain on server-side events. In production it must be
    `yurthome.co` (the Plausible site), not `app.yurthome.co`.
 
@@ -205,11 +247,12 @@ any plan.
 - **Some CTA clicks are lost** to the navigation race — the page can unload
   before the event lands. Read CTA counts comparatively, not absolutely.
 - **`gclid`/`msclkid` values are stripped by Plausible**, so a conversion can't
-  be joined back to a specific ad click. The raw value *is* in our cookie, so the
-  database half could do it once built.
+  be joined back to a specific ad click *in Plausible*. The raw value is stored
+  in `signup_attributions`, so that join can be made in our own database.
 - **Plausible sessions expire after 30 minutes.** Browse, walk away, come back
-  and sign up, and the source is lost there. The cookie is unaffected — the main
-  argument for building the database half.
+  and sign up, and the source is lost there. The cookie is unaffected, so
+  `signup_attributions` still records it — this is the main thing the database
+  half buys you, and the clearest case where the two systems disagree.
 - **Subdomains only.** Session sharing works because `app.yurthome.co` is a
   subdomain. A genuinely separate domain would need a different approach.
 - **This site's analytics depend on the Rails app.** Both the tracker and every
@@ -236,8 +279,14 @@ any plan.
 7. In Plausible, confirm `Signup` is attributed to source `test` — **not** to
    `yurthome.co` as a referral. A referral attribution means the two hosts aren't
    sharing a site.
+8. In the Rails app, `User.last.signup_attribution` has `utm_source: "test"` and
+   `utm_medium: "manual"`. This step is independent of Plausible — it works with
+   `PLAUSIBLE_ANALYTICS_KEY` unset, and is the faster check when you only care
+   about the database half.
 
 This repo has **no test suite**; the flow is covered on the Rails side by
 `spec/features/auth/attribution_spec.rb` (cookie, first-touch-only, malformed
-JSON, param fallback, no-attribution, Google OAuth, and the key-unset case) plus
-service specs for `BroadcastSignup` and `StoreAttribution`.
+JSON, param fallback, no-attribution, Google OAuth, and the key-unset case; the
+persisted row is asserted in all of those but the first-touch-only and
+malformed-JSON cases), plus service specs for `BroadcastSignup` and
+`StoreAttribution` and a model spec for `SignupAttribution`.
